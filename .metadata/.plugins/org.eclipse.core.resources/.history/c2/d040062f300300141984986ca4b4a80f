@@ -1,0 +1,338 @@
+
+
+public class Interfaz {
+	private JFrame ventana1, ventana2;
+	private JPanel panel1, panel2, panel3, panel4, panel5;
+	private JLabel lblcolor, lblram, lblprecio, lblpantalla, lbltouch, lbltipoTeclado, lblwifi, lblestilo, lblwifi1; 
+	private JLabel lblgrafico, lblprocesador, lbldiscoDuro, lblnoCompu, lblinvertido;
+	private JTextField txtcolor, txtram, txtprecio, txtpantalla, txttouch, txttipoTeclado, txtnoCompu; 
+	private JTextField txtwifi, txtestilo, txtwifi1, txtgrafico, txtprocesador, txtdiscoDuro;
+	private JButton tbnguardar, btnbuscar, btnmostrar, tbnguardar1, btnbuscar1, btnmostrar1, tbnguardar2, btnbuscar2, btnmostrar2;
+	private JRadioButton rbtlaptop, rbtdesktop, rbttablet;
+	private JTable tabla;
+	private Tienda datos;
+	private ButtonGroup grupo1;
+	private JLabel[] Lista;
+	private int cont;
+	private double invertido;
+	//creo objetos
+	
+	public Interfaz() {
+		datos= new Tienda();
+		ventana1=new JFrame();
+		ventana2 = new JFrame();
+		panel1 = new JPanel();
+		panel2=new JPanel();
+		panel3=new JPanel();
+		panel4=new JPanel();
+		panel5=new JPanel();
+		datos = new Tienda();
+		//creo los objetos y ventnaas
+		ventana1.setTitle("Almacenes: LA compu Feliz S.A.");
+		ventana1.setPreferredSize(new Dimension(270,530));
+		panel1.setLayout(new BoxLayout(panel1,BoxLayout.PAGE_AXIS));
+		panel2.setLayout(new BoxLayout(panel2,BoxLayout.PAGE_AXIS));
+		panel3.setLayout(new BoxLayout(panel3,BoxLayout.PAGE_AXIS));
+		panel4.setLayout(new BoxLayout(panel4,BoxLayout.PAGE_AXIS));
+		panel5.setLayout(new BoxLayout(panel5,BoxLayout.PAGE_AXIS));
+		
+		ventana2.setTitle("Almacenes: LA compu Feliz S.A.");
+		ventana2.setPreferredSize(new Dimension(770,330));
+		
+		ventana1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		ventana1.add(panel1,BorderLayout.NORTH);
+		ventana1.add(panel2,BorderLayout.EAST);
+		ventana1.add(panel3,BorderLayout.WEST);
+		ventana1.add(panel4,BorderLayout.SOUTH);
+		
+		ventana2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
+		Lista =new JLabel[1000];
+		
+		lblcolor= new JLabel("Color: ");
+		lblram= new JLabel("ram: ");
+		lblprecio= new JLabel("precio: ");
+		lblpantalla= new JLabel("pantalla: ");
+		lbltouch= new JLabel("Es Touch: ");
+		lbltipoTeclado= new JLabel("TipoTeclado: ");
+		lblwifi = new JLabel("red wifi");
+		lblwifi1 = new JLabel("red wifi");
+		lblestilo=new JLabel("Estilo: ");
+		lblgrafico=new JLabel("Tarjeta Grafica: ");
+		lblpantalla=new JLabel("Tamaño de la pantalla en plg: ");
+		lblprocesador= new JLabel("Tipo de procesador");
+		lblnoCompu = new JLabel("Codigo de venta: ");
+		lbldiscoDuro= new JLabel("Tamaño del Disco Duro");
+		
+		txtcolor =new JTextField();
+		txtram =new JTextField();
+		txtprecio =new JTextField();
+		txtpantalla =new JTextField();
+		txttouch =new JTextField();
+		txttipoTeclado =new JTextField();
+		txtwifi =new JTextField(); 
+		txtestilo = new JTextField();
+		txtwifi1 =new JTextField();
+		txtgrafico =new JTextField();
+		txtnoCompu = new JTextField();
+		txtprocesador = new JTextField();
+		txtdiscoDuro = new JTextField();
+		
+		tbnguardar= new JButton("Guardar");
+		btnbuscar= new JButton("Buscar");
+		btnmostrar= new JButton("Mostrar");
+
+		tbnguardar1= new JButton("Guardar");
+		btnbuscar1= new JButton("Buscar");
+		btnmostrar1= new JButton("Mostrar"); 
+		
+		tbnguardar2= new JButton("Guardar");
+		btnbuscar2= new JButton("Buscar");
+		btnmostrar2= new JButton("Mostrar");
+		
+		rbtlaptop = new JRadioButton("Laptop");
+		rbtdesktop = new JRadioButton("Desktop");
+		rbttablet = new JRadioButton("Tablet");
+		 cont=0;
+	}
+	
+	public void registrar(){ //agrgo objetos al panel
+		panel1.add(lblcolor);
+		panel1.add(txtcolor);
+		panel1.add(lblram);
+		panel1.add(txtram);
+		panel1.add(lblprecio);
+		panel1.add(txtprecio);
+		panel1.add(lblnoCompu);
+		panel1.add(txtnoCompu);
+		panel1.add(lblprocesador);
+		panel1.add(txtprocesador);
+		panel1.add(lblpantalla);
+		panel1.add(txtpantalla);
+		panel1.add(lbldiscoDuro);
+		panel1.add(txtdiscoDuro);
+		panel1.add(rbtdesktop);
+		panel1.add(rbtlaptop);
+		panel1.add(rbttablet);
+		
+		panel2.setVisible(false);
+		panel3.setVisible(false);
+		panel4.setVisible(false);
+		
+		panel2.add(lblestilo);
+		panel2.add(txtestilo);
+		panel2.add(lblwifi);
+		panel2.add(txtwifi);
+		panel2.add(tbnguardar);
+		panel2.add(btnbuscar);
+		panel2.add(btnmostrar);
+		
+		panel3.add(lbltipoTeclado);
+		panel3.add(txttipoTeclado);
+		panel3.add(lbltouch);
+		panel3.add(txttouch);
+		panel3.add(tbnguardar1);
+		panel3.add(btnbuscar1);
+		panel3.add(btnmostrar1);
+
+		panel4.add(lblgrafico);
+		panel4.add(txtgrafico);
+		panel4.add(lblwifi1);
+		panel4.add(txtwifi1);
+		panel4.add(tbnguardar2);
+		panel4.add(btnbuscar2);
+		panel4.add(btnmostrar2);
+		
+		tbnguardar.addActionListener(new ButtonListener());
+		btnbuscar.addActionListener(new ButtonListener());
+		btnmostrar.addActionListener(new ButtonListener());
+		
+		tbnguardar1.addActionListener(new ButtonListener());
+		btnbuscar1.addActionListener(new ButtonListener());
+		btnmostrar1.addActionListener(new ButtonListener());
+		
+		tbnguardar2.addActionListener(new ButtonListener());
+		btnbuscar2.addActionListener(new ButtonListener());
+		btnmostrar2.addActionListener(new ButtonListener());
+		
+		
+		//agrego los radio a los grupos
+		grupo1= new ButtonGroup();
+		grupo1.add(rbtlaptop);
+		grupo1.add(rbtdesktop);
+		grupo1.add(rbttablet);
+				
+		//agregando action a los radiobutton
+		rbtlaptop.addActionListener(new ButtonListener());
+		rbtdesktop.addActionListener(new ButtonListener());
+		rbttablet.addActionListener(new ButtonListener());
+				
+		mostrar();
+		
+	}
+	
+	public void limpiar(){ //limpio txt
+		txtcolor.setText("");
+		txtram.setText("");
+		txtcolor.setText("");
+		txtram.setText("");
+		txtprecio.setText("");
+		txtpantalla.setText("");
+		txttouch.setText("");
+		txttipoTeclado.setText("");
+		txtwifi.setText("");
+		txtestilo.setText("");
+		txtwifi1.setText("");
+		txtgrafico.setText("");
+		txtnoCompu.setText("");
+		txtprocesador.setText("");
+		txtdiscoDuro.setText("");
+		
+	}
+	
+	public void  mostrar(){
+		ventana1.pack();
+		ventana1.setVisible(true);
+		ventana2.pack();
+		ventana2.setVisible(false);
+	}
+	//asigno acciones
+	private class ButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			//tablets
+			if (e.getSource()==tbnguardar){
+				datos.adicionarTablet(txtgrafico.getText(), txtwifi.getText(), txtcolor.getText(),txtprecio.getText(), txtprocesador.getText(), txtram.getText(), txtdiscoDuro.getText(), txtpantalla.getText(),Integer.parseInt(txtnoCompu.getText()));
+				cont++;
+				invertido = invertido+ Double.parseDouble(txtprecio.getText());
+				lblinvertido=new JLabel("Total invertido: "+invertido+" Quetzales");
+				panel5.add(lblinvertido);
+				limpiar();
+			}
+			
+			if (e.getSource()==btnmostrar){
+				
+				
+				for(int i=0;i<1000;i++){
+					if (datos.getCompu()[i] != null){
+						String p = datos.getCompu()[i].toString();
+						Lista[i] = new JLabel();
+						Lista[i].setText(p);
+						panel5.add(Lista[i]);
+						
+					}
+
+				}
+				
+				limpiar();
+				ventana2.setContentPane(panel5);
+				ventana2.setVisible(true);
+			}
+			
+			if (e.getSource()==btnbuscar){
+				for(int i=0;i<1000;i++){
+			
+					if (datos.getCompu()[i] != null){
+					
+						String p = datos.getCompu()[i].toString();
+						Lista[i] = new JLabel();
+						Lista[i].setText(p);
+						panel5.add(Lista[i]);
+						
+					}
+					
+				}
+				ventana2.setContentPane(panel5);
+				ventana2.setVisible(true);
+				limpiar();
+			}
+			
+			
+			//Laptops
+			if (e.getSource()==tbnguardar1){
+				datos.adicionarLaptop(txtestilo.getText(), txtwifi.getText(),txtcolor.getText(), txtprecio.getText(), txtprocesador.getText(),txtram.getText(), txtdiscoDuro.getText(),txtpantalla.getText(),Integer.parseInt(txtnoCompu.getText()));
+				invertido = invertido+ Double.parseDouble(txtprecio.getText());
+				lblinvertido=new JLabel("Total invertido: "+invertido+" Quetzales");
+				panel5.add(lblinvertido);
+				limpiar();
+				cont++;
+			}
+			
+			if (e.getSource()==btnmostrar1){
+				
+				for(int i=0;i<1000;i++){
+					if (datos.getCompu()[i] != null){
+						String p = datos.getCompu()[i].toString();
+						Lista[i] = new JLabel();
+						Lista[i].setText(p);
+						panel5.add(Lista[i]);
+						
+					}
+
+				}
+				
+				limpiar();
+				ventana2.setContentPane(panel5);
+				ventana2.setVisible(true);
+			}
+			
+			if (e.getSource()==btnbuscar1){
+				limpiar();
+			}
+			
+			//Desktop
+			if (e.getSource()==tbnguardar2){
+				datos.adicionarDesktop(txtgrafico.getText(), txtwifi.getText(), txtcolor.getText(), txtprecio.getText(), txtprocesador.getSelectedText(), txtram.getText(), txtdiscoDuro.getText(), txtpantalla.getText(),Integer.parseInt(txtnoCompu.getText()));
+				invertido = invertido+ Double.parseDouble(txtprecio.getText());
+				lblinvertido=new JLabel("Total invertido: "+invertido+" Quetzales");
+				panel5.add(lblinvertido);
+				cont++;
+				limpiar();
+			}
+			
+			if (e.getSource()==btnmostrar2){
+				
+				for(int i=0;i<1000;i++){
+					if (datos.getCompu()[i] != null){
+						String p = datos.getCompu()[i].toString();
+						Lista[i] = new JLabel();
+						Lista[i].setText(p);
+						panel5.add(Lista[i]);
+						
+					}
+
+				}
+				
+				limpiar();
+				ventana2.setContentPane(panel5);
+				ventana2.setVisible(true);
+			}
+			
+			if (e.getSource()==btnbuscar2){
+				for(int i=0; i<cont;i++){
+					if(datos.getCompu()[i]!=null){
+						
+					}
+				}
+				limpiar();
+			}
+			
+			if (e.getSource()==rbttablet){
+				panel2.setVisible(true);
+				panel3.setVisible(false);
+				panel4.setVisible(false);
+			}
+			if (e.getSource()==rbtlaptop){
+				panel3.setVisible(true);
+				panel2.setVisible(false);
+				panel4.setVisible(false);
+			}
+			if (e.getSource()==rbtdesktop){
+				panel2.setVisible(false);
+				panel3.setVisible(false);
+				panel4.setVisible(true);
+			}
+		}
+	}
+}
+

@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\Ricado\Desktop\progra\.metadata\.plugins\org.eclipse.jdt.core
+3946796104.index
+3229343931.index
+3885963155.index

@@ -1,0 +1,40 @@
+
+public class Laptop extends Computadora {
+	private String estilo, wifi;
+	
+	public Laptop(String estilo, String wifi, String color, String precio, String procesador,
+			String ram, String discoDuro, String pantalla, int noCompu) {
+		super(color, precio, procesador,ram, discoDuro,pantalla,noCompu);
+		this.estilo=estilo;
+		this.wifi=wifi;
+		
+	}
+
+	public String getEstilo() {
+		return estilo;
+	}
+
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+
+	public String getWifi() {
+		return wifi;
+	}
+
+	public void setWifi(String wifi) {
+		this.wifi = wifi;
+	}
+
+	
+	public String toString() {
+		return "Laptop [estilo=" + estilo + ", wifi=" + wifi + ", color="
+				+ color + ", precio=" + precio + ", procesador=" + procesador
+				+ ", ram=" + ram + ", Disco Duro=" + discoDuro + ", pantalla="
+				+ pantalla + ", Codigo de Compu=" + noCompu + "]";
+	}
+
+	
+	
+
+}
